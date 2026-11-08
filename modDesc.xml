@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<modDesc descVersion="116">
+    <author>FS Modding</author>
+    <version>1.0.0.0</version>
+    <title>
+        <en>Auto Bale</en>
+        <de>Auto-Ballen</de>
+        <fr>Auto-Balles</fr>
+    </title>
+    <description>
+        <en><![CDATA[Turns the straw, hay and grass windrows on your fields into bales with one click, no baler needed. You choose on the map where the bales are delivered.
+
+HOW IT WORKS
+Open the map menu and click one of your fields. Under "Visit", "Sell" and "Tag Place" there is a new button: Auto Bale. The mod recognizes by itself what lies on the ground of that field (straw, hay or fresh grass), adds up the litres of each kind and makes bales from them (litres divided by the litres of one bale). After you confirm the question "Are you sure?" with Yes (No simply closes the menu), you click on the map where the bales should be delivered. As soon as the point is set, the straw disappears completely from the field (also the visual traces of the windrows) and the bales are stacked at that point in blocks of 4x4x4 (64 bales), so you only have to drive there and collect them.
+
+- Works on your own land only. The point can be anywhere on the map: your farm, a road, another field
+- The stacks are put on a free, level place near your point. If something is in the way (vehicles, trees, buildings, other bales, water, a slope), they are moved a little. If there is no room within about 48 m, nothing is changed and you get a message: choose another point
+- Closing the map before you have set the point cancels everything, nothing is changed
+- The job costs money: 100 per straw row (a line of straw on the field) plus 200 for the delivery to the point. The prices are shown in the question and taken from your farm when the job runs. Not enough money: nothing is changed
+- Big square bales by default, console command autoBaleType round switches to round bales
+- A rest of at least 5 percent of a bale becomes one smaller bale, so the straw you see is the straw you get
+- Square bales are stacked in blocks of 4x4x4 by default, console command autoBaleStack 6 makes blocks of 6x6x6, autoBaleStack 0 puts single bales in rows. Round bales are never stacked, they would roll away
+- If a block does not fit, a smaller block size is used
+- Multiplayer: the farm of the player who clicks gets the bales
+
+CONSOLE
+- autoBale [farmlandId] [x z | here]: same as the button. With a point (x z, or here = where you stand) the stacks are delivered there. Without a point the bales lie at the edge of the field. The field you stand on is used when no number is given
+- autoBaleScan [farmlandId]: only counts the straw, the bales and the price, changes nothing
+- autoBalePrice [amount]: money per straw row (default 100)
+- autoBaleFee [amount]: money for the delivery to the point (default 200)
+- autoBalePick on|off: the button asks for the point on the map (on, default) or puts the bales at the field edge (off)
+- autoBaleType square|round: bale shape
+- autoBaleGrass silage|grass: default for the question about fresh grass: wrapped silage bales or plain grass bales
+- autoBaleStack 0|4|6: block size of the stacks (setting is reset to 4 when the game starts)
+- autoBaleClean [farmlandId]: erases leftover straw traces on the field, for single player and the host. Piles of other material are skipped
+- autoBaleInfo: shows the settings and the bale types that were found
+
+NOTES
+- Straw makes straw bales, dry grass (hay) makes hay bales, fresh grass makes wrapped silage bales or plain grass bales: the mod asks you which one before the job starts. Grass that dried on the field is hay and can only become hay bales. If a field has several kinds, you get all of them in one delivery
+- If the click on the map cannot be caught on your game version, the bales are put at the edge of the field instead and a line in the log tells it. The console command with x z still works.]]></en>
+        <de><![CDATA[Verwandelt Stroh, Heu und Gras-Schwaden auf deinen Feldern mit einem Klick in Ballen, ganz ohne Ballenpresse. Auf der Karte waehlst du, wohin die Ballen geliefert werden.
+
+SO FUNKTIONIERT ES
+Oeffne das Kartenmenue und klicke auf eines deiner Felder. Unter den bisherigen Buttons gibt es einen neuen Button: Auto-Ballen. Der Mod sucht Stroh auf dem Boden dieses Feldes, addiert die Liter und macht daraus Ballen (Liter Stroh geteilt durch die Liter eines Ballens). Nach der Rueckfrage "Bist du sicher?" mit Ja (Nein schliesst nur das Menue) klickst du auf die Karte, wohin die Ballen geliefert werden sollen. Sobald der Punkt gesetzt ist, verschwindet das Stroh komplett vom Feld (auch die sichtbaren Spuren der Schwaden) und die Ballen liegen an diesem Punkt in Bloecken zu 4x4x4 (64 Ballen) gestapelt, du musst nur hinfahren und sie einsammeln.
+
+- Funktioniert nur auf eigenem Land. Der Punkt kann ueberall auf der Karte sein: dein Hof, eine Strasse, ein anderes Feld
+- Die Stapel kommen auf einen freien, ebenen Platz in der Naehe deines Punktes. Steht etwas im Weg (Fahrzeuge, Baeume, Gebaeude, andere Ballen, Wasser, ein Hang), werden sie ein Stueck verschoben. Gibt es im Umkreis von etwa 48 m keinen Platz, wird nichts veraendert und du bekommst eine Meldung: waehle einen anderen Punkt
+- Schliesst du die Karte, bevor du den Punkt gesetzt hast, wird alles abgebrochen, nichts wird veraendert
+- Der Auftrag kostet Geld: 100 pro Strohreihe (eine Strohlinie auf dem Feld) plus 200 fuer die Lieferung zum Punkt. Die Preise stehen in der Rueckfrage und werden beim Ausfuehren von deiner Farm abgebucht. Nicht genug Geld: nichts wird veraendert
+- Standardmaessig Quaderballen, mit dem Konsolenbefehl autoBaleType round gibt es Rundballen
+- Ein Rest von mindestens 5 Prozent eines Ballens wird ein kleinerer Ballen, so bekommst du genau das Stroh, das du siehst
+- Quaderballen werden standardmaessig in Bloecken zu 4x4x4 gestapelt, mit dem Konsolenbefehl autoBaleStack 6 gibt es Bloecke zu 6x6x6, autoBaleStack 0 legt einzelne Ballen in Reihen. Rundballen werden nie gestapelt, sie wuerden wegrollen
+- Passt ein Block nicht, wird eine kleinere Blockgroesse benutzt
+- Mehrspieler: Die Farm des Spielers, der klickt, bekommt die Ballen
+
+KONSOLE
+- autoBale [farmlandId] [x z | here]: wie der Button. Mit Punkt (x z, oder here = wo du stehst) werden die Stapel dorthin geliefert. Ohne Punkt liegen die Ballen am Feldrand. Ohne Nummer wird das Feld benutzt, auf dem du stehst
+- autoBaleScan [farmlandId]: zaehlt nur Stroh, Ballen und Preis, aendert nichts
+- autoBalePrice [Betrag]: Geld pro Strohreihe (Standard 100)
+- autoBaleFee [Betrag]: Geld fuer die Lieferung zum Punkt (Standard 200)
+- autoBalePick on|off: der Button fragt nach dem Punkt auf der Karte (on, Standard) oder legt die Ballen an den Feldrand (off)
+- autoBaleType square|round: Ballenform
+- autoBaleGrass silage|grass: Vorgabe fuer die Frage bei frischem Gras: gewickelte Silageballen oder einfache Grasballen
+- autoBaleStack 0|4|6: Blockgroesse der Stapel (beim Spielstart wieder 4)
+- autoBaleClean [farmlandId]: entfernt uebrig gebliebene Strohspuren auf dem Feld, nur Einzelspieler und Host. Haufen anderer Materialien werden uebersprungen
+- autoBaleInfo: zeigt die Einstellungen und die gefundenen Ballentypen
+
+HINWEISE
+- Stroh ergibt Strohballen, trockenes Gras (Heu) ergibt Heuballen, frisches Gras ergibt gewickelte Silageballen oder einfache Grasballen: der Mod fragt dich vor dem Auftrag, was du willst. Gras, das auf dem Feld getrocknet ist, ist Heu und kann nur Heuballen werden. Liegen mehrere Arten auf dem Feld, kommen alle in einer Lieferung
+- Kann der Klick auf die Karte in deiner Spielversion nicht abgefangen werden, kommen die Ballen stattdessen an den Feldrand und eine Zeile im Log sagt es. Der Konsolenbefehl mit x z funktioniert weiterhin.]]></de>
+        <fr><![CDATA[Transforme la paille, le foin et les andains d'herbe de vos champs en balles d'un seul clic, sans presse. Vous choisissez sur la carte ou les balles sont livrees.
+
+COMMENT CA MARCHE
+Ouvrez le menu de la carte et cliquez sur l'un de vos champs. Sous les boutons existants il y a un nouveau bouton : Auto-Balles. Le mod reconnait tout seul ce qui est pose sur le sol de ce champ (paille, foin ou herbe fraiche), additionne les litres de chaque sorte et en fait des balles (litres divises par les litres d'une balle). Apres la question "Etes-vous sur ?" confirmee par Oui (Non ferme simplement le menu), vous cliquez sur la carte ou les balles doivent etre livrees. Des que le point est choisi, la paille disparait completement du champ (aussi les traces visuelles des andains) et les balles sont empilees a cet endroit en blocs de 4x4x4 (64 balles), il vous suffit d'y aller pour les ramasser.
+
+- Fonctionne uniquement sur vos propres terres. Le point peut etre n'importe ou sur la carte : votre ferme, une route, un autre champ
+- Les piles sont posees sur un endroit libre et plat pres de votre point. Si quelque chose gene (vehicules, arbres, batiments, autres balles, eau, pente), elles sont deplacees un peu. S'il n'y a pas de place dans environ 48 m, rien n'est modifie et un message s'affiche : choisissez un autre point
+- Fermer la carte avant d'avoir choisi le point annule tout, rien n'est modifie
+- Le travail est payant : 100 par rangee de paille (une ligne de paille dans le champ) plus 200 pour la livraison au point. Les prix sont affiches dans la question et preleves sur votre ferme a l'execution. Pas assez d'argent : rien n'est modifie
+- Balles carrees par defaut, la commande autoBaleType round donne des balles rondes
+- Un reste d'au moins 5 pour cent d'une balle devient une balle plus petite, la paille que vous voyez est la paille que vous obtenez
+- Les balles carrees sont empilees par defaut en blocs de 4x4x4, la commande autoBaleStack 6 donne des blocs de 6x6x6, autoBaleStack 0 met des balles seules en rangees. Les balles rondes ne sont jamais empilees, elles rouleraient
+- Si un bloc ne tient pas, une taille de bloc plus petite est utilisee
+- Multijoueur : la ferme du joueur qui clique recoit les balles
+
+CONSOLE
+- autoBale [farmlandId] [x z | here] : comme le bouton. Avec un point (x z, ou here = ou vous etes) les piles sont livrees la. Sans point les balles sont au bord du champ. Le champ ou vous vous trouvez est utilise si aucun numero n'est donne
+- autoBaleScan [farmlandId] : compte seulement la paille, les balles et le prix, ne change rien
+- autoBalePrice [montant] : argent par rangee de paille (100 par defaut)
+- autoBaleFee [montant] : argent pour la livraison au point (200 par defaut)
+- autoBalePick on|off : le bouton demande le point sur la carte (on, par defaut) ou met les balles au bord du champ (off)
+- autoBaleType square|round : forme des balles
+- autoBaleGrass silage|grass : reglage par defaut pour la question sur l'herbe fraiche : balles d'ensilage enrubannees ou simples balles d'herbe
+- autoBaleStack 0|4|6 : taille des blocs empiles (revient a 4 au demarrage du jeu)
+- autoBaleClean [farmlandId] : efface les traces de paille restantes sur le champ, solo et hote seulement. Les tas d'autres materiaux sont ignores
+- autoBaleInfo : montre les reglages et les types de balles trouves
+
+REMARQUES
+- La paille donne des balles de paille, l'herbe seche (foin) des balles de foin, l'herbe fraiche des balles d'ensilage enrubannees ou de simples balles d'herbe : le mod vous demande lesquelles avant le travail. L'herbe qui a seche dans le champ est du foin et ne peut devenir que des balles de foin. Si le champ a plusieurs sortes, vous les recevez toutes en une seule livraison
+- Si le clic sur la carte ne peut pas etre capte dans votre version du jeu, les balles sont mises au bord du champ et une ligne du log le dit. La commande de console avec x z fonctionne toujours.]]></fr>
+    </description>
+    <iconFilename>icon_autoBale.dds</iconFilename>
+    <multiplayer supported="true"/>
+    <extraSourceFiles>
+        <sourceFile filename="autobale.lua"/>
+    </extraSourceFiles>
+    <l10n>
+        <text name="autobale_button">
+            <en>Auto Bale</en>
+            <de>Auto-Ballen</de>
+            <fr>Auto-Balles</fr>
+        </text>
+        <text name="autobale_done">
+            <en>Farmland %s: %d bales at the field edge.</en>
+            <de>Parzelle %s: %d Ballen am Feldrand.</de>
+            <fr>Parcelle %s : %d balles au bord du champ.</fr>
+        </text>
+        <text name="autobale_preview">
+            <en>Farmland %s: %d L = %d bales (preview).</en>
+            <de>Parzelle %s: %d L = %d Ballen (Vorschau).</de>
+            <fr>Parcelle %s : %d L = %d balles (apercu).</fr>
+        </text>
+        <text name="autobale_confirm">
+            <en>Farmland %s: all straw, hay and grass on the field will be turned into bales and removed from the ground. Price: %s per row. Are you sure?</en>
+            <de>Parzelle %s: Das gesamte Stroh, Heu und Gras auf dem Feld wird zu Ballen gepresst und vom Boden entfernt. Preis: %s pro Reihe. Bist du sicher?</de>
+            <fr>Parcelle %s : toute la paille, le foin et l'herbe du champ seront transformes en balles et retires du sol. Prix : %s par rangee. Etes-vous sur ?</fr>
+        </text>
+        <text name="autobale_cost">
+            <en>Paid %s.</en>
+            <de>Bezahlt: %s.</de>
+            <fr>Paye : %s.</fr>
+        </text>
+        <text name="autobale_costPreview">
+            <en>Cost: %s.</en>
+            <de>Kosten: %s.</de>
+            <fr>Cout : %s.</fr>
+        </text>
+        <text name="autobale_noMoney">
+            <en>Farmland %s: %s are needed and you do not have enough money. Nothing was changed.</en>
+            <de>Parzelle %s: %s werden benoetigt und du hast nicht genug Geld. Nichts wurde veraendert.</de>
+            <fr>Parcelle %s : il faut %s et vous n'avez pas assez d'argent. Rien n'a ete modifie.</fr>
+        </text>
+        <text name="autobale_noStraw">
+            <en>Farmland %s: no straw, hay or grass on the ground.</en>
+            <de>Parzelle %s: kein Stroh, Heu oder Gras auf dem Boden.</de>
+            <fr>Parcelle %s : pas de paille, de foin ni d'herbe au sol.</fr>
+        </text>
+        <text name="autobale_notOwner">
+            <en>Auto Bale only works on your own land.</en>
+            <de>Auto-Ballen funktioniert nur auf eigenem Land.</de>
+            <fr>Auto-Balles ne fonctionne que sur vos propres terres.</fr>
+        </text>
+        <text name="autobale_noField">
+            <en>Farmland %s has no field.</en>
+            <de>Parzelle %s hat kein Feld.</de>
+            <fr>La parcelle %s n'a pas de champ.</fr>
+        </text>
+        <text name="autobale_noBale">
+            <en>No bale type found for this material.</en>
+            <de>Kein Ballentyp fuer dieses Material gefunden.</de>
+            <fr>Aucun type de balle trouve pour cette matiere.</fr>
+        </text>
+        <text name="autobale_tooLittle">
+            <en>Farmland %s: %d L on the ground is too little for a bale.</en>
+            <de>Parzelle %s: %d L auf dem Boden sind zu wenig fuer einen Ballen.</de>
+            <fr>Parcelle %s : %d L au sol, c'est trop peu pour une balle.</fr>
+        </text>
+        <text name="autobale_noSpace">
+            <en>Farmland %s: not enough room at the field edge for all bales, nothing was changed.</en>
+            <de>Parzelle %s: Am Feldrand ist nicht genug Platz fuer alle Ballen, nichts wurde veraendert.</de>
+            <fr>Parcelle %s : pas assez de place au bord du champ pour toutes les balles, rien n'a ete modifie.</fr>
+        </text>
+        <text name="autobale_doneAt">
+            <en>Farmland %s: %d bales delivered to %d / %d.</en>
+            <de>Parzelle %s: %d Ballen geliefert nach %d / %d.</de>
+            <fr>Parcelle %s : %d balles livrees a %d / %d.</fr>
+        </text>
+        <text name="autobale_noSpacePoint">
+            <en>Farmland %s: no free, level place for all bales near that point, nothing was changed. Choose another point.</en>
+            <de>Parzelle %s: In der Naehe dieses Punktes gibt es keinen freien, ebenen Platz fuer alle Ballen, nichts wurde veraendert. Waehle einen anderen Punkt.</de>
+            <fr>Parcelle %s : pas d'endroit libre et plat pour toutes les balles pres de ce point, rien n'a ete modifie. Choisissez un autre point.</fr>
+        </text>
+        <text name="autobale_confirmPoint">
+            <en>Farmland %s: all straw, hay and grass on the field will be turned into bales and removed from the ground. Price: %s per row, delivery %s. Next you click on the map where the bales should be delivered. Are you sure?</en>
+            <de>Parzelle %s: Das gesamte Stroh, Heu und Gras auf dem Feld wird zu Ballen gepresst und vom Boden entfernt. Preis: %s pro Reihe, Lieferung %s. Danach klickst du auf die Karte, wohin die Ballen geliefert werden. Bist du sicher?</de>
+            <fr>Parcelle %s : toute la paille, le foin et l'herbe du champ seront transformes en balles et retires du sol. Prix : %s par rangee, livraison %s. Ensuite vous cliquez sur la carte ou les balles doivent etre livrees. Etes-vous sur ?</fr>
+        </text>
+        <text name="autobale_pick">
+            <en>Auto Bale: click on the map where the bales should be delivered. Closing the map cancels.</en>
+            <de>Auto-Ballen: Klicke auf die Karte, wohin die Ballen geliefert werden sollen. Schliessen der Karte bricht ab.</de>
+            <fr>Auto-Balles : cliquez sur la carte ou les balles doivent etre livrees. Fermer la carte annule.</fr>
+        </text>
+        <text name="autobale_pickHint">
+            <en>Auto Bale: click on the map where the bales should be delivered</en>
+            <de>Auto-Ballen: Klicke auf die Karte, wohin die Ballen geliefert werden sollen</de>
+            <fr>Auto-Balles : cliquez sur la carte ou les balles doivent etre livrees</fr>
+        </text>
+        <text name="autobale_pickCancel">
+            <en>Auto Bale cancelled, nothing was changed.</en>
+            <de>Auto-Ballen abgebrochen, nichts wurde veraendert.</de>
+            <fr>Auto-Balles annule, rien n'a ete modifie.</fr>
+        </text>
+        <text name="autobale_badFarmland">
+            <en>Unknown farmland.</en>
+            <de>Unbekannte Parzelle.</de>
+            <fr>Parcelle inconnue.</fr>
+        </text>
+        <text name="autobale_kindStraw">
+            <en>Straw: %d</en>
+            <de>Stroh: %d</de>
+            <fr>Paille : %d</fr>
+        </text>
+        <text name="autobale_kindHay">
+            <en>Hay: %d</en>
+            <de>Heu: %d</de>
+            <fr>Foin : %d</fr>
+        </text>
+        <text name="autobale_kindSilage">
+            <en>Silage (wrapped): %d</en>
+            <de>Silage (gewickelt): %d</de>
+            <fr>Ensilage (enrubanne) : %d</fr>
+        </text>
+        <text name="autobale_kindGrass">
+            <en>Grass: %d</en>
+            <de>Gras: %d</de>
+            <fr>Herbe : %d</fr>
+        </text>
+        <text name="autobale_askGrass">
+            <en>Farmland %s: fresh grass is lying on the field. Yes = wrapped silage bales. No = plain grass bales.</en>
+            <de>Parzelle %s: Auf dem Feld liegt frisches Gras. Ja = gewickelte Silageballen. Nein = einfache Grasballen.</de>
+            <fr>Parcelle %s : de l'herbe fraiche est posee dans le champ. Oui = balles d'ensilage enrubannees. Non = simples balles d'herbe.</fr>
+        </text>
+    </l10n>
+</modDesc>
